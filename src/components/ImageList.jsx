@@ -1,18 +1,18 @@
 import React from 'react'
-import ImageCard from "./ImageCard"
+import ImageCard from './ImageCard'
 import './ImageList.css';
 
 const ImageList = ({ images }) => {
 
   const populateImageList = () => {
-    return images.map((image) => {
-      return <ImageCard key={image.id} image={image} />
+    return images.map((image, index) => {
+      return <ImageCard key={index} image={image} />
     });
-  }
+  };
 
   return (
-    <div className="image-list">{populateImageList()}</div>
+    <div className='image-list'>{images && populateImageList()}</div>
   )
 }
 
-export default ImageListfc
+export default ImageList;

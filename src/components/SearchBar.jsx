@@ -1,36 +1,51 @@
 import React, { useState } from 'react'
-import constants from '../api/constants';
+import styled from 'styled-components';
 
-const SearchBar = () => {
+const Button = styled.button`
+  background-color: #f0f0f0;
+  color: #252525;
+  font-size: 1em;
+  height: 20px;
+  border: 2px solid #5a5a5a;
+  border-radius: 3px;
+`;
+
+const Input = styled.input`
+  background-color: #f0f0f0;
+  color: #252525;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  width: 430px;
+  height: 20px;
+  border: 2px solid #5a5a5a;
+  border-radius: 3px;
+`;
+
+const SearchBar = ({ onSearch, onQuery }) => {
   const [query, setQuery] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log(query);
-    handleAPICall();
+    onSearch(query);
+    onQuery(query);
   };
-
-  const handleAPICall = () => {
-    const url = constants.BASE_URL + "&text=" + query;
-			fetch(url)
-      .then(response => response.json())
-      .then(data => console.log(data.photos))
-      .catch(error => console.log(error));
-  }
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
+
   };
 
   return (
     <form onSubmit={onFormSubmit}>
-      <input
+      <Input
         type="text"
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
       />
-      <button type="submit">Search</button>
+      <Button type="submit">Search</Button>
     </form>
   )
 }

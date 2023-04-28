@@ -2,12 +2,10 @@ import React, {useState, useEffect, useRef} from 'react'
 
 const ImageCard = ({ image }) => {
   const [spans, setSpans] = useState(0);
-  const description = image.description;
-  const urls = image.urls;
   const imageRef = useRef();
 
   useEffect(() => {
-    imageRef.current.addEventListener('load', handleSpans)
+    imageRef.current.addEventListener('load', handleSpans);
   }, []);
 
   const handleSpans = () => {
@@ -18,11 +16,12 @@ const ImageCard = ({ image }) => {
 
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
-      <img 
-          ref={imageRef}
-          alt={description} 
-          src={urls.regular} 
-      /> 
+      <img
+        ref={imageRef}
+        alt={image.title}
+        loading="lazy"
+        src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+      />
     </div>
   )
 }
