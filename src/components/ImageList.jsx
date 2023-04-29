@@ -6,7 +6,7 @@ const ImageList = ({ images }) => {
 
   const populateImageList = () => {
     return images.map((image, index) => {
-      return <ImageCard key={index} image={image} />
+      return <ImageCard key={`${index}_${image.id}`} image={image} />
     });
   };
 

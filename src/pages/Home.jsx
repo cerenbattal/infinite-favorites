@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   const handleSearch = (query) => {
-    getPhotos(query, page, 35)
+    getPhotos(query, page, 30)
       .then(response => response.json())
       .then(data => setImages((images) => [...images, ...data.photos.photo]))
       .catch(error => console.log(error));
@@ -48,7 +48,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <SearchBar onSearch={handleSearch} onQuery={setQuery} />
       <ImageList images={images} />
     </div>

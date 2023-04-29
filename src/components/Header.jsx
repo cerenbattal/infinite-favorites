@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
@@ -13,13 +14,15 @@ const HeaderContainer = styled.header`
 const Logo = styled.h1`
   font-size: 24px;
   margin: 0;
+  text-decoration: none;
+  color: white;
 `;
 
 const Navigation = styled.nav`
   display: flex;
 `;
 
-const NavItem = styled.a`
+const NavItem = styled.p`
   color: #fff;
   text-decoration: none;
   margin-left: 1rem;
@@ -28,10 +31,13 @@ const NavItem = styled.a`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo>Infinite-fav!</Logo>
+      <NavLink to={'/'} style={{ textDecoration: 'none' }}>
+        <Logo>Infinite-fav!</Logo>
+      </NavLink>
       <Navigation>
-        <NavItem href="#">Favorites</NavItem>
-        <NavItem href="#">Profile</NavItem>
+        <NavLink to={'/profile'} style={{ textDecoration: 'none' }}>
+          <NavItem>Profile</NavItem>
+        </NavLink>
       </Navigation>
     </HeaderContainer>
   );

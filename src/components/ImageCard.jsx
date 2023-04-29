@@ -1,5 +1,6 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import styled from "styled-components";
+import { Context } from "../context/GlobalContext";
 
 const GalleryImageWrapper = styled.div`
   position: relative;
@@ -46,7 +47,8 @@ const FavoritedButton = styled.button`
 `;
 
 const ImageCard = ({ image }) => {
-  const [isHovered, setIsHovered] = useState(true);
+  const { state, addFavorite, removeFavorite } = useContext(Context);
+  const [isHovered, setIsHovered] = useState(false);
   const [spans, setSpans] = useState(0);
   const imageRef = useRef();
 
@@ -55,7 +57,7 @@ const ImageCard = ({ image }) => {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(true);
+    setIsHovered(false);
   };
 
   useEffect(() => {
@@ -68,6 +70,24 @@ const ImageCard = ({ image }) => {
     setSpans(spans);
   };
 
+  const handleFavorited = () => {
+    if (!isFavorited()) {
+      addFavorite(image);
+    }
+  };
+
+  const handleUnFavorited = () => {
+    if (isFavorited()) {
+      removeFavorite(image);
+    }
+  };
+
+  const isFavorited = () => {
+    return state.userProfile.favorites.find((favoritedImage) => {
+      return favoritedImage.id === image.id;
+    });
+  }
+
   return (
     <GalleryImageWrapper
       hovered={isHovered}
@@ -79,12 +99,13 @@ const ImageCard = ({ image }) => {
         ref={imageRef}
         alt={image.title}
         loading="lazy"
+        id={image.id}
         src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
       />
       {isHovered && (
         <Overlay hovered={isHovered}>
           <Caption>{image.title}</Caption>
-          <FavoritedButton>Favorited!</FavoritedButton>
+          {isFavorited() ? <FavoritedButton onClick={() => handleUnFavorited()} >Favorited!</FavoritedButton> : <Button onClick={() => handleFavorited()} >Favorite</Button>}
         </Overlay>
       )}
     </GalleryImageWrapper>
