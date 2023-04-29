@@ -3,7 +3,7 @@ import createDataContext from './createDataContext';
 const globalReducer = (state, action) => {
   switch (action.type) {
     case 'add_favorite':
-      if ((state.userProfile.favorites.filter(image => image.id !== action.payload.image.Id)).length === 0) {
+      if ((state.userProfile.favorites.filter(image => image.id === action.payload.image.id)).length === 0) {
         const updatedFavorites = [...state.userProfile.favorites, action.payload.image];
         const updatedUserProfile = { ...state.userProfile, favorites: updatedFavorites };
         return { ...state, userProfile: updatedUserProfile };
