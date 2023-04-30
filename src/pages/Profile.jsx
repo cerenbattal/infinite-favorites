@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Context } from "../context/GlobalContext";
 import ImageList from '../components/ImageList';
+import { getFavorites } from '../utils/localStorage';
 import { ReactComponent as UserIcon } from '../assets/icons/user.svg';
 
 const ProfileContainer = styled.div`
@@ -39,7 +39,6 @@ const FavoritedImages = styled.div`
 `;
 
 const Profile = () => {
-  const { state } = useContext(Context);
   return (
     <ProfileContainer>
       <ProfileInfo>
@@ -64,7 +63,7 @@ const Profile = () => {
       </ProfileInfo>
       <FavoritedImages>
         <p>Your favorites</p>
-        <ImageList images={state.userProfile.favorites} />
+        <ImageList images={getFavorites()} />
       </FavoritedImages>
     </ProfileContainer>
   );

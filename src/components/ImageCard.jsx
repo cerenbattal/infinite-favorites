@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
-import { Context } from "../context/GlobalContext";
+import { addFavorite, removeFavorite } from '../utils/localStorage';
 
 const GalleryImageWrapper = styled.div`
   position: relative;
@@ -47,7 +47,6 @@ const FavoritedButton = styled.button`
 `;
 
 const ImageCard = ({ image }) => {
-  const { state, addFavorite, removeFavorite } = useContext(Context);
   const [isHovered, setIsHovered] = useState(false);
   const [spans, setSpans] = useState(0);
   const imageRef = useRef();
@@ -83,7 +82,9 @@ const ImageCard = ({ image }) => {
   };
 
   const isFavorited = () => {
-    return state.userProfile.favorites.find((favoritedImage) => {
+    const appState = JSON.parse(localStorage.getItem('APP_STATE'));
+    const userFavorites = appState.userProfile.favorites;
+    return userFavorites.find((favoritedImage) => {
       return favoritedImage.id === image.id;
     });
   }
