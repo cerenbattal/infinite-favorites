@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { addFavorite, removeFavorite } from '../utils/localStorage';
 import { getUserInfo } from '../api/getUserInfoApi';
 
 const GalleryImageWrapper = styled.div`
   position: relative;
-  grid-row-end: span ${(props) => (props.spans)};
+  grid-row-end: span ${(props) => props.spans};
 `;
 
 const Overlay = styled.div`
@@ -13,10 +13,10 @@ const Overlay = styled.div`
   top: 48%;
   left: 50%;
   width: 250px;
-  height: ${props => props.height}px;
+  height: ${(props) => props.height}px;
   transform: translate(-50%, -50%);
-  display: ${(props) => (props.hovered ? "flex" : "none")};
-  background-color: rgba(128,128,128,0.75);
+  display: ${(props) => (props.hovered ? 'flex' : 'none')};
+  background-color: rgba(128, 128, 128, 0.75);
   border-radius: 8px;
   flex-direction: column;
   align-items: center;
@@ -78,19 +78,17 @@ const ImageCard = ({ image }) => {
   useEffect(() => {
     const getImageOwner = () => {
       getUserInfo(image.owner)
-        .then(response => response.json())
-        .then(data => setImageOwner(data.person.username._content))
-        .catch(error => console.log(error));
-    }
+        .then((response) => response.json())
+        .then((data) => setImageOwner(data.person.username._content))
+        .catch((error) => console.log(error));
+    };
     imageRef.current.addEventListener('load', handleSpans);
     getImageOwner();
   }, [image.owner]);
 
-
-
   const handleSpans = () => {
     const height = imageRef.current.clientHeight;
-    const spans = Math.ceil(height / 10 + 1)
+    const spans = Math.ceil(height / 10 + 1);
     setSpans(spans);
   };
 
@@ -112,7 +110,7 @@ const ImageCard = ({ image }) => {
     return userFavorites.find((favoritedImage) => {
       return favoritedImage.id === image.id;
     });
-  }
+  };
 
   return (
     <GalleryImageWrapper
@@ -134,11 +132,15 @@ const ImageCard = ({ image }) => {
           <ImageName>{image.title}</ImageName>
           <OverlayLine>{'---------'}</OverlayLine>
           <ImageOwner>{imageOwner}</ImageOwner>
-          {isFavorited() ? <FavoritedButton onClick={() => handleUnFavorited()}>Favorited!</FavoritedButton> : <Button onClick={() => handleFavorited()} >Favorite</Button>}
+          {isFavorited() ? (
+            <FavoritedButton onClick={() => handleUnFavorited()}>Favorited!</FavoritedButton>
+          ) : (
+            <Button onClick={() => handleFavorited()}>Favorite</Button>
+          )}
         </Overlay>
       )}
     </GalleryImageWrapper>
-  )
-}
+  );
+};
 
-export default ImageCard
+export default ImageCard;

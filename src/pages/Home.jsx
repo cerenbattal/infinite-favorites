@@ -26,11 +26,11 @@ const Home = () => {
     const scrollTop = Math.max(
       window.pageYOffset,
       document.documentElement.scrollTop,
-      document.body.scrollTop
+      document.body.scrollTop,
     );
     const scrollHeight = Math.max(
       document.documentElement.scrollHeight,
-      document.body.scrollHeight
+      document.body.scrollHeight,
     );
     const clientHeight = document.documentElement.clientHeight;
 
@@ -41,10 +41,10 @@ const Home = () => {
 
   const handleSearch = (query) => {
     getPhotos(query, page, 3)
-      .then(response => response.json())
-      .then(data => setImages((images) => [...images, ...data.photos.photo]))
-      .catch(error => console.log(error));
-  }
+      .then((response) => response.json())
+      .then((data) => setImages((images) => [...images, ...data.photos.photo]))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div>

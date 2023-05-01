@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -23,7 +23,7 @@ const Input = styled.input`
 `;
 
 const SearchBar = ({ onSearch, onQuery }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -33,20 +33,14 @@ const SearchBar = ({ onSearch, onQuery }) => {
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
-
   };
 
   return (
     <form onSubmit={onFormSubmit}>
-      <Input
-        type="text"
-        placeholder="Search..."
-        value={query}
-        onChange={handleInputChange}
-      />
-      <Button type="submit">Search</Button>
+      <Input type='text' placeholder='Search...' value={query} onChange={handleInputChange} />
+      <Button type='submit'>Search</Button>
     </form>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

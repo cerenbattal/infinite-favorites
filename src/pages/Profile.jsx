@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import ImageList from '../components/ImageList';
 import { getFavorites, getUserProfile } from '../utils/localStorage';
 import { ReactComponent as UserIcon } from '../assets/icons/user.svg';
@@ -48,7 +48,6 @@ const ProfileData = styled.p`
   font-size: 18px;
   margin-bottom: 10px;
 `;
-
 
 const Profile = () => {
   return (

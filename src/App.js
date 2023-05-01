@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -16,19 +16,19 @@ function App() {
         surname: 'Battal',
         location: 'Istanbul',
         email: 'cerenbattal97@gmail.com',
-        favorites: []
+        favorites: [],
       },
-      theme: 'light'
-    }
+      theme: 'light',
+    };
     window.localStorage.setItem('APP_STATE', JSON.stringify(initialState));
   }, []);
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
