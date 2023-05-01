@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
 import { addFavorite, removeFavorite } from '../utils/localStorage';
+import { getUserInfo } from '../api/getUserInfoApi';
 
 const GalleryImageWrapper = styled.div`
   position: relative;
@@ -9,13 +10,14 @@ const GalleryImageWrapper = styled.div`
 
 const Overlay = styled.div`
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: ${props => props.height}px;
   transform: translate(-50%, -50%);
   display: ${(props) => (props.hovered ? "flex" : "none")};
   background-color: rgba(128,128,128,0.75);
+  border-radius: 8px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -23,9 +25,21 @@ const Overlay = styled.div`
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 `;
 
-const Caption = styled.p`
+const ImageName = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+const ImageOwner = styled.p`
   font-size: 16px;
   margin-bottom: 1rem;
+  height: 40px;
+`;
+
+const OverlayLine = styled.p`
+  font-size: 12px;
+  height: 40px;
 `;
 
 const Button = styled.button`
@@ -47,7 +61,9 @@ const FavoritedButton = styled.button`
 `;
 
 const ImageCard = ({ image }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
+  const [imageOwner, setImageOwner] = useState('');
+  const [height, setHeight] = useState();
   const [spans, setSpans] = useState(0);
   const imageRef = useRef();
 
@@ -56,15 +72,24 @@ const ImageCard = ({ image }) => {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    setIsHovered(true);
   };
 
   useEffect(() => {
+    const getImageOwner = () => {
+      getUserInfo(image.owner)
+        .then(response => response.json())
+        .then(data => setImageOwner(data.person.username._content))
+        .catch(error => console.log(error));
+    }
     imageRef.current.addEventListener('load', handleSpans);
-  }, []);
+    getImageOwner();
+  }, [image.owner]);
+
+
 
   const handleSpans = () => {
-    const height = imageRef.current.clientHeight
+    const height = imageRef.current.clientHeight;
     const spans = Math.ceil(height / 10 + 1)
     setSpans(spans);
   };
@@ -99,14 +124,17 @@ const ImageCard = ({ image }) => {
       <img
         ref={imageRef}
         alt={image.title}
-        loading="lazy"
+        loading='lazy'
         id={image.id}
         src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+        onLoad={() => setHeight(imageRef.current.clientHeight)}
       />
       {isHovered && (
-        <Overlay hovered={isHovered}>
-          <Caption>{image.title}</Caption>
-          {isFavorited() ? <FavoritedButton onClick={() => handleUnFavorited()} >Favorited!</FavoritedButton> : <Button onClick={() => handleFavorited()} >Favorite</Button>}
+        <Overlay hovered={isHovered} height={height}>
+          <ImageName>{image.title}</ImageName>
+          <OverlayLine>{'---------'}</OverlayLine>
+          <ImageOwner>{imageOwner}</ImageOwner>
+          {isFavorited() ? <FavoritedButton onClick={() => handleUnFavorited()}>Favorited!</FavoritedButton> : <Button onClick={() => handleFavorited()} >Favorite</Button>}
         </Overlay>
       )}
     </GalleryImageWrapper>

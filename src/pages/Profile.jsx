@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ImageList from '../components/ImageList';
-import { getFavorites } from '../utils/localStorage';
+import { getFavorites, getUserProfile } from '../utils/localStorage';
 import { ReactComponent as UserIcon } from '../assets/icons/user.svg';
 
 const ProfileContainer = styled.div`
@@ -24,6 +24,12 @@ const ProfileSubSection = styled.div`
   margin: 5px;
 `;
 
+const ProfileSubTitle = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px;
+`;
+
 const UserAvatar = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +44,12 @@ const FavoritedImages = styled.div`
   flex: 0.7;
 `;
 
+const ProfileData = styled.p`
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+
+
 const Profile = () => {
   return (
     <ProfileContainer>
@@ -46,19 +58,24 @@ const Profile = () => {
           <UserIcon />
         </UserAvatar>
         <ProfileSubSection>
-          username
+          <ProfileSubTitle>Username</ProfileSubTitle>
+          <ProfileData>{getUserProfile().username}</ProfileData>
         </ProfileSubSection>
         <ProfileSubSection>
-          email
+          <ProfileSubTitle>Email</ProfileSubTitle>
+          <ProfileData>{getUserProfile().email}</ProfileData>
         </ProfileSubSection>
         <ProfileSubSection>
-          name
+          <ProfileSubTitle>Name</ProfileSubTitle>
+          <ProfileData>{getUserProfile().name}</ProfileData>
         </ProfileSubSection>
         <ProfileSubSection>
-          surname
+          <ProfileSubTitle>Surname</ProfileSubTitle>
+          <ProfileData>{getUserProfile().surname}</ProfileData>
         </ProfileSubSection>
         <ProfileSubSection>
-          location
+          <ProfileSubTitle>Location</ProfileSubTitle>
+          <ProfileData>{getUserProfile().location}</ProfileData>
         </ProfileSubSection>
       </ProfileInfo>
       <FavoritedImages>

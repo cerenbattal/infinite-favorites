@@ -27,7 +27,6 @@ const SearchBar = ({ onSearch, onQuery }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(query);
     onSearch(query);
     onQuery(query);
   };

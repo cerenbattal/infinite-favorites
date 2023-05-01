@@ -8,12 +8,13 @@ const HeaderContainer = styled.header`
   align-items: center;
   background-color: #333;
   color: #fff;
-  padding: 1rem;
+  padding: 10px;
 `;
 
 const Logo = styled.h1`
+  font-family: 'Pacifico', cursive;
   font-size: 24px;
-  margin: 0;
+  margin-left: 1rem;
   text-decoration: none;
   color: white;
 `;
@@ -25,7 +26,7 @@ const Navigation = styled.nav`
 const NavItem = styled.p`
   color: #fff;
   text-decoration: none;
-  margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
 const Header = () => {

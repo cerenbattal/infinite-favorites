@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   const handleSearch = (query) => {
-    getPhotos(query, page, 30)
+    getPhotos(query, page, 3)
       .then(response => response.json())
       .then(data => setImages((images) => [...images, ...data.photos.photo]))
       .catch(error => console.log(error));

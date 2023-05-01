@@ -22,3 +22,8 @@ export const getFavorites = () => {
   const appState = JSON.parse(localStorage.getItem('APP_STATE'));
   return appState.userProfile.favorites;
 }
+
+export const getUserProfile = () => {
+  const appState = JSON.parse(localStorage.getItem('APP_STATE'));
+  return appState.userProfile;
+}
