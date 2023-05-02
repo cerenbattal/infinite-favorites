@@ -88,26 +88,26 @@ Project is done.
 ## Screenshots
 
 ### Desktop
-![Desktop 1](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Desktop/desktop.png?raw=true)
-![Desktop 2](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Desktop/desktop2.png?raw=true)
+![Desktop 1](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Desktop/desktop.png?raw=true)
+![Desktop 2](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Desktop/desktop2.png?raw=true)
 ### Tablet
-![ipad](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Tablet/ipad.png?raw=true)
-![ipad mini](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Tablet/ipadmini.png?raw=true)
-![ipad mini 2](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Tablet/ipadmini2.png?raw=true)
-![ipad pro](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Tablet/ipadpro.png?raw=true)
-![ipad pro 2](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Tablet/ipadpro2.png?raw=true)
+![ipad](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Tablet/ipad.png?raw=true)
+![ipad mini](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Tablet/ipadmini.png?raw=true)
+![ipad mini 2](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Tablet/ipadmini2.png?raw=true)
+![ipad pro](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Tablet/ipadpro.png?raw=true)
+![ipad pro 2](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Tablet/ipadpro2.png?raw=true)
 ### Mobile
-![iPhone 5/SE](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iphone5-se.png?raw=true)
-![iPhone 6/7/8](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iphone6-7-8.png?raw=true)
-![iPhone 6/7/8 2](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iphone6-7-8-2.png?raw=true)
-![iPhone 12 Pro](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iPhone12pro.png?raw=true)
-![iPhone 12 Pro 2](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iPhone12pro-2.png?raw=true)
-![iPhone X](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Mobile/iphonex.png?raw=true)
+![iPhone 5/SE](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iphone5-se.png?raw=true)
+![iPhone 6/7/8](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iphone6-7-8.png?raw=true)
+![iPhone 6/7/8 2](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iphone6-7-8-2.png?raw=true)
+![iPhone 12 Pro](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iPhone12pro.png?raw=true)
+![iPhone 12 Pro 2](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iPhone12pro-2.png?raw=true)
+![iPhone X](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Mobile/iphonex.png?raw=true)
 
 ### Custom
-![329x1061](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Custom/custom-329x1061.png?raw=true)
-![737x1061](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Custom/custom-737x1061.png?raw=true)
-![1133x1060](https://github.com/cerenbattal/infinite-favorites/tree/main/src/assets/screenshots/Custom/custom-1133x1060.png?raw=true)
+![329x1061](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Custom/custom-329x1061.png?raw=true)
+![737x1061](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Custom/custom-737x1061.png?raw=true)
+![1133x1060](https://github.com/cerenbattal/infinite-favorites/blob/main/src/assets/screenshots/Custom/custom-1133x1060.png?raw=true)
 
 
 ## Further development
