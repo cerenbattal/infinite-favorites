@@ -35,7 +35,6 @@ function App() {
         email: 'cerenbattal97@gmail.com',
       },
       favorites: [],
-      theme: 'light',
     };
     if (!appState) {
       localStorage.setItem('APP_STATE', JSON.stringify(initialState));
