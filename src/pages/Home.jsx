@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getPhotos } from './../api/getPhotosApi';
-import Header from '../components/Header';
 import ImageList from '../components/ImageList';
 import SearchBar from './../components/SearchBar';
 
 const Home = () => {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
+  const [prevQuery, setPrevQuery] = useState('');
   const [query, setQuery] = useState();
 
   useEffect(() => {
@@ -21,6 +21,12 @@ const Home = () => {
       handleSearch(query);
     }
   }, [page]);
+
+  useEffect(() => {
+    if (query !== prevQuery) {
+      setImages([]);
+    }
+  }, [query]);
 
   const handleInfiniteScroll = () => {
     const scrollTop = Math.max(
@@ -39,10 +45,13 @@ const Home = () => {
     }
   };
 
-  const handleSearch = (query) => {
-    getPhotos(query, page, 3)
+  const handleSearch = async (query) => {
+    getPhotos(query, page, 30)
       .then((response) => response.json())
-      .then((data) => setImages((images) => [...images, ...data.photos.photo]))
+      .then((data) => {
+        setImages((images) => [...images, ...data.photos.photo])
+        setPrevQuery(query);
+      })
       .catch((error) => console.log(error));
   };
 

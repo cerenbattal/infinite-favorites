@@ -1,12 +1,28 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
 import Header from './components/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
-import './App.css';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #f1f1f1;
+    font-family: 'Inter', sans-serif;
+  }
+`;
+
+const AppContainer = styled.div`
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+`;
 
 function App() {
+  const appState = JSON.parse(localStorage.getItem('APP_STATE'));
+
   useEffect(() => {
     const initialState = {
       userProfile: {
@@ -16,21 +32,26 @@ function App() {
         surname: 'Battal',
         location: 'Istanbul',
         email: 'cerenbattal97@gmail.com',
-        favorites: [],
       },
+      favorites: [],
       theme: 'light',
     };
-    window.localStorage.setItem('APP_STATE', JSON.stringify(initialState));
+    if (!appState) {
+      localStorage.setItem('APP_STATE', JSON.stringify(initialState));
+    }
+
   }, []);
+
   return (
-    <div className='App'>
+    <AppContainer>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-    </div>
+    </AppContainer>
   );
 }
 

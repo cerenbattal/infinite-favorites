@@ -10,13 +10,13 @@ const GalleryImageWrapper = styled.div`
 
 const Overlay = styled.div`
   position: absolute;
-  top: 48%;
+  top: 46%;
   left: 50%;
   width: 250px;
   height: ${(props) => props.height}px;
   transform: translate(-50%, -50%);
   display: ${(props) => (props.hovered ? 'flex' : 'none')};
-  background-color: rgba(128, 128, 128, 0.75);
+  background-color: rgba(128, 128, 128, 0.4);
   border-radius: 8px;
   flex-direction: column;
   align-items: center;
@@ -26,20 +26,22 @@ const Overlay = styled.div`
 `;
 
 const ImageName = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 0;
+  padding: 0;
 `;
 
 const ImageOwner = styled.p`
-  font-size: 16px;
-  margin-bottom: 1rem;
-  height: 40px;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 `;
 
 const OverlayLine = styled.p`
   font-size: 12px;
-  height: 40px;
+  margin: 0;
+  padding: 0;
 `;
 
 const Button = styled.button`
@@ -48,6 +50,7 @@ const Button = styled.button`
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8rem;
+  margin-top: 8px;
   cursor: pointer;
 `;
 
@@ -57,22 +60,35 @@ const FavoritedButton = styled.button`
   color: rgba(0, 0, 0, 0.5);
   padding: 0.5rem 1rem;
   border-radius: 8rem;
+  margin-top: 8px;
   cursor: pointer;
 `;
 
 const ImageCard = ({ image }) => {
-  const [isHovered, setIsHovered] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const [imageOwner, setImageOwner] = useState('');
   const [height, setHeight] = useState();
   const [spans, setSpans] = useState(0);
   const imageRef = useRef();
+
+  const [favorite, setFavorite] = useState(localStorage.getItem('APP_STATE'));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setFavorite(localStorage.getItem('APP_STATE'));
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [favorite]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(true);
+    setIsHovered(false);
   };
 
   useEffect(() => {
@@ -95,6 +111,7 @@ const ImageCard = ({ image }) => {
   const handleFavorited = () => {
     if (!isFavorited()) {
       addFavorite(image);
+      setFavorite(true);
     }
   };
 
@@ -106,7 +123,7 @@ const ImageCard = ({ image }) => {
 
   const isFavorited = () => {
     const appState = JSON.parse(localStorage.getItem('APP_STATE'));
-    const userFavorites = appState.userProfile.favorites;
+    const userFavorites = appState.favorites;
     return userFavorites.find((favoritedImage) => {
       return favoritedImage.id === image.id;
     });
@@ -124,6 +141,9 @@ const ImageCard = ({ image }) => {
         alt={image.title}
         loading='lazy'
         id={image.id}
+        width="250"
+        height={height}
+        onError={(event) => event.target.style.display = 'none'}
         src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
         onLoad={() => setHeight(imageRef.current.clientHeight)}
       />
