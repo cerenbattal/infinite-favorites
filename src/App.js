@@ -39,7 +39,6 @@ function App() {
     if (!appState) {
       localStorage.setItem('APP_STATE', JSON.stringify(initialState));
     }
-
   }, []);
 
   return (

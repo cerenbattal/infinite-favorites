@@ -65,8 +65,8 @@ const SearchBar = ({ onSearch, onQuery }) => {
   };
 
   return (
-    <Form onSubmit={onFormSubmit}>
-      <Input type='text' placeholder='Search...' value={query} onChange={handleInputChange} />
+    <Form onSubmit={onFormSubmit} data-testid="search-bar">
+      <Input type='text' placeholder='Search...' value={query} onChange={handleInputChange} data-testid="search-bar-input" />
       <SearchButton type='submit'>Search</SearchButton>
     </Form>
   );

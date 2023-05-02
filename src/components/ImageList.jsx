@@ -9,7 +9,7 @@ const ImageList = ({ images }) => {
     });
   };
 
-  return <div className='image-list'>{images && populateImageList()}</div>;
+  return <div className='image-list' data-testid="image-list">{images && populateImageList()}</div>;
 };
 
 export default ImageList;

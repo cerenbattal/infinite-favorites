@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import App from '../App';
+import Header from './../components/Header';
 
-test('renders App', () => {
+test('renders Header component', () => {
   render(
     <BrowserRouter>
-      <App />
+      <Header />
     </BrowserRouter>
   );
   const linkElement = screen.getByText(/Infinite-fav!/i);
