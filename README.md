@@ -1,6 +1,4 @@
-# Project Title
-
-Infinite-favorites
+# Infinite-favorites
 
 ## Table of Content:
 
