@@ -8,8 +8,9 @@ import Profile from './pages/Profile';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #f1f1f1;
+    background-color: #e2e2e2;
     font-family: 'Inter', sans-serif;
+    margin: 0;
   }
 `;
 
