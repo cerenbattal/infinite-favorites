@@ -28,11 +28,11 @@ function App() {
     const initialState = {
       userProfile: {
         userId: 1,
-        username: 'cerenbattal',
-        name: 'Ceren',
-        surname: 'Battal',
-        location: 'Istanbul',
-        email: 'cerenbattal97@gmail.com',
+        username: 'janedoe',
+        name: 'Jane',
+        surname: 'Doe',
+        location: 'World',
+        email: 'janedoe@mail.com',
       },
       favorites: [],
     };

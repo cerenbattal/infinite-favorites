@@ -110,7 +110,7 @@ Project is done.
 - Not Found page can be designed.
 - I would add internationalization.
 - Redux Toolkit and Redux Persist can be used for state management and to not lose current state on page reload.
-- User management system can be added. I have already defined one user - me - and created a Profile page. If I had more time, I would definetely extend users and user management.
+- User management system can be added. I have already defined one user and created a Profile page. If I had more time, I would definetely extend users and user management.
 - If I had more time, I would try to create a little Figma file and design my components and their states. For example:
   - Define design system colors
   - Hover, active states for buttons and input field

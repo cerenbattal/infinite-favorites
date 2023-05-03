@@ -5,11 +5,11 @@ import Profile from '../pages/Profile';
 const initialStateWithData = {
   userProfile: {
     userId: 1,
-    username: 'cerenbattal',
-    name: 'Ceren',
-    surname: 'Battal',
-    location: 'Istanbul',
-    email: 'cerenbattal97@gmail.com',
+    username: 'janedoe',
+    name: 'Jane',
+    surname: 'Doe',
+    location: 'World',
+    email: 'janedoe@mail.com',
   },
   favorites: [],
 };
@@ -17,10 +17,10 @@ const initialStateWithData = {
 const initialStateWithoutData = {
   userProfile: {
     userId: 1,
-    name: 'Ceren',
-    surname: 'Battal',
-    location: 'Istanbul',
-    email: 'cerenbattal97@gmail.com',
+    name: 'Jane',
+    surname: 'Doe',
+    location: 'World',
+    email: 'janedoe@mail.com',
   },
   favorites: [],
 };
@@ -35,12 +35,12 @@ describe('Profile', () => {
 
   it('should render the text from localStorage', () => {
     const { getByText } = render(<Profile />);
-    expect(getByText('cerenbattal')).toBeInTheDocument();
+    expect(getByText('janedoe')).toBeInTheDocument();
   });
 
   it('should render N/A if there is no data on localStorage', () => {
     const { getByText } = render(<Profile />);
-    expect(getByText('cerenbattal')).toBeInTheDocument();
+    expect(getByText('janedoe')).toBeInTheDocument();
   });
 });
 
