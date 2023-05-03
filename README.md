@@ -120,12 +120,4 @@ Project is done.
 - I would improve code coverage rate.
 - If I look to the reference screenshot that you provided me on the github page, it can be seen that all images has the same width and height. When I fetch the images, they are all different width and height and I had to not break the width/height ratio of the images. That's why my image cards are little different with your screenshot.
 - Lastly, if I had more time, I would research more ideas about lazy loading images.
-## Credits
 
-List of contributors:
-
-- [Ceren Battal](https://www.github.com/cerenbattal)
-
-## License
-
-MIT license @[Ceren Battal](https://www.github.com/cerenbattal)
