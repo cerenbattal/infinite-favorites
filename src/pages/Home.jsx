@@ -46,7 +46,7 @@ const Home = () => {
   };
 
   const handleSearch = async (query) => {
-    getPhotos(query, page, 30)
+    getPhotos(query, page, 35)
       .then((response) => response.json())
       .then((data) => {
         setImages((images) => [...images, ...data.photos.photo])

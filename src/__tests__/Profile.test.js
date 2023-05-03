@@ -54,7 +54,6 @@ describe('Profile', () => {
   it('should render N/A if there is no data on localStorage', () => {
     const { getByText } = render(<Profile />);
 
-    // Make sure that the component renders the text from localStorage
     expect(getByText('N/A')).toBeInTheDocument();
   });
 });
